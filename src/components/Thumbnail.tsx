@@ -36,3 +36,5 @@ export const Thumbnail = ({
   );
 };
 
+export default Thumbnail
+

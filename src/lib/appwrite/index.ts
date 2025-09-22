@@ -3,7 +3,6 @@
 import { Account, Avatars, Client, Databases, Storage } from "node-appwrite";
 import { appwriteConfig } from "@/src/lib/appwrite/config";
 import { cookies } from "next/headers";
-import { error } from "console";
 import { redirect } from "next/navigation";
 
 

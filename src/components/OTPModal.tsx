@@ -17,10 +17,8 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from "@/src/components/ui/input-otp"
-import { email } from 'zod'
 import Image from 'next/image'
 import { Button } from './ui/button'
-import { link } from 'node:fs'
 import { sendEmailOTP, verifySecret } from '@/src/lib/actions/user.actions'
 import { useRouter } from 'next/navigation'
 
@@ -66,11 +64,10 @@ const OTPModal = ({accountId, email} : {accountId: string, email: string}) => {
     <AlertDialogHeader className='relative flex justify-center'>
       <AlertDialogTitle className='h2 text-center'>
         Enter your OTP
-        <img src="/assets/icons/close-dark.svg" alt="close" width={20} height={20} onClick={() => setIsOpen(false)} className='otp-close-button' />
-      
+        <Image src="/assets/icons/close-dark.svg" alt="close" width={20} height={20} onClick={() => setIsOpen(false)} className='otp-close-button' />
       </AlertDialogTitle>
       <AlertDialogDescription className='subtitle-2 text-center text-light-100' >
-      We've sent a code to <span className='pl-1 text-brand'>{email}</span>
+      We&apos;ve sent a code to <span className='pl-1 text-brand'>{email}</span>
       </AlertDialogDescription>
     </AlertDialogHeader>
 
@@ -98,7 +95,7 @@ const OTPModal = ({accountId, email} : {accountId: string, email: string}) => {
                 )}
             </AlertDialogAction>
             <div className='subtitle-2 mt-2 text-center text-light-100'>
-                Didn't get a code? <Button type='button' variant = 'link' className='pl-1 text-brand' onClick={handleResendOTP}>
+                Didn&#39;t get a code? <Button type='button' variant = 'link' className='pl-1 text-brand' onClick={handleResendOTP}>
                     click to resend
                 </Button>
             </div>

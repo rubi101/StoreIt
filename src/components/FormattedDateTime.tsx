@@ -2,7 +2,7 @@ import { cn, formatDateTime } from '@/src/lib/utils'
 import React from 'react'
 
  export const FormattedDateTime = ({date,className} : {
-    date : string,
+    date : string | null,
     className?: string
  }) => {
   return (
@@ -11,6 +11,3 @@ import React from 'react'
     </p>
   )
 }
-
-
-

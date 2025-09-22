@@ -4,16 +4,16 @@ import React, { useEffect, useState } from 'react'
 import { Input } from './ui/input'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { getFiles } from '@/src/lib/actions/file.actions'
-import { Models } from 'node-appwrite'
-import Thumbnail from './Thumbnail'
-import FormattedDateTime from './FormattedDateTime'
-import {useDebounce} from 'use-Debounce'
+import {Thumbnail} from './Thumbnail'
+import {FormattedDateTime} from './FormattedDateTime'
+import { useDebounce } from 'use-debounce'
+import { FileDoc } from '../types'
 
 const Search = () => {
   const [query,setQuery] = useState('')
   const searchParams = useSearchParams()
   const searchQuery = searchParams.get("query") || ""
-  const [results, setResults] = useState<Models.Document[]>([])
+  const [results, setResults] = useState<FileDoc[]>([])
   const [open,setOpen] = useState(false)
   const router = useRouter()
   const path = usePathname()
@@ -25,7 +25,7 @@ const Search = () => {
       if(debouncedQuery.length === 0){
         setResults([])
         setOpen(false)
-        return router.push(path.replace(searchParams.toString(),""))
+        return router.push(path)
       }
       const files = await getFiles({ types:[],searchText: debouncedQuery})
 
@@ -34,7 +34,7 @@ const Search = () => {
 
     }
     fetchFiles()
-  },[debouncedQuery])
+  },[debouncedQuery, path, router])
 
   useEffect(()=>{
     if(!searchQuery){
@@ -42,12 +42,12 @@ const Search = () => {
     }
   },[searchQuery])
 
-  const handleClickItem = (file : Models.Document) => {
+  const handleClickItem = (file : FileDoc) => {
     setOpen(false)
     setResults([])
 
      let route = '';
-  if (file.type === "video" || file.tyep === "audio") route = "/media";
+  if (file.type === "video" || file.type === "audio") route = "/media";
   else if (file.type === "image") route = "/images";
   else if (file.type === "document") route = "/documents";
   else route = `/${file.type}s`;

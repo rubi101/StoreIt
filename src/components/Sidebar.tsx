@@ -65,7 +65,7 @@ const Sidebar = ({fullName, avatar,email} : Props) => {
     />
     <div className="sidebar-user-info">
         <Image 
-          src={avatarPlaceholderUrl}
+          src={avatar || avatarPlaceholderUrl}
           alt='Avatar'
           width={44}
           height={44}

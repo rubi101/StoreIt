@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from "react"
-import {  email, z } from "zod"
+import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 
@@ -15,8 +15,9 @@ import {
 } from "@/src/components/ui/form"
 import { Input } from "@/src/components/ui/input"
 import Link from "next/link"
-import { createAccount, signInUser } from "@/src/lib/actions/user.actions"
+import { createAccount } from "@/src/lib/actions/user.actions"
 import OTPModal from "./OTPModal"
+import Image from "next/image"
 
 
 
@@ -125,7 +126,9 @@ const AuthForm = ( {type}:{ type : FormType }) => {
         />
         <Button type="submit" className="form-submit-button" disabled = {isLoading}>
             {type == "sign-in"? "Sign In" : "Sign Up"}
-            {isLoading &&  <img src="/assets/icons/loader.svg" alt="loader" width={24} height={24} className="animate-spin ml-2" />}
+            {isLoading &&  (
+              <Image src="/assets/icons/loader.svg" alt="loader" width={24} height={24} className="animate-spin ml-2" />
+            )}
            
         </Button>
         {errorMessage && <p className="error-message">*{errorMessage}</p>}

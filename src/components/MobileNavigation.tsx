@@ -4,8 +4,6 @@ import { avatarPlaceholderUrl, navItems } from '@/src/constants'
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
-  SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/src/components/ui/sheet"

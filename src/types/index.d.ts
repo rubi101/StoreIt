@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { Models } from "node-appwrite";
 
 declare type FileType = "document" | "image" | "video" | "audio" | "other";
@@ -12,6 +11,7 @@ declare interface FileDoc extends Models.Document {
   url: string;
   size: number;
   bucketFileId: string; // if used for download links
+  users: string[]; // users with whom the file is shared
 }
 
 

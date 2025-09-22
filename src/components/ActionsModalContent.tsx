@@ -1,12 +1,10 @@
- 'use Client'
-import React, { ReactNode } from 'react'
-import { Models } from 'node-appwrite'
+ 'use client'
+import React from 'react'
 import Thumbnail from './Thumbnail'
 import { FileDoc } from '@/src/types'
 import  {FormattedDateTime} from './FormattedDateTime'
 import { convertFileSize, formatDateTime } from '@/src/lib/utils'
 import { Input } from './ui/input'
-import { email } from 'zod'
 import { Button } from './ui/button'
 import Image from 'next/image'
 
@@ -46,7 +44,7 @@ export const FileDetails = ({file} : {file: FileDoc}) => {
 }
 
 interface Props {
-  file: Models.Document
+  file: FileDoc
   onInputChange: React.Dispatch<React.SetStateAction<string[]>>
   onRemove : (email: string) =>void
   

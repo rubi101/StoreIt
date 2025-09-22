@@ -6,7 +6,6 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/src/components/ui/dialog"
 import {
   DropdownMenu,
@@ -17,7 +16,6 @@ import {
   DropdownMenuTrigger,
 } from "@/src/components/ui/dropdown-menu"
 import Image from 'next/image'
-import { Models } from 'node-appwrite'
 import { actionsDropdownItems } from '@/src/constants'
 
 import Link from 'next/link'
